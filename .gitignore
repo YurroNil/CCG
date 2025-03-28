@@ -26,6 +26,9 @@
 # Executables
 *.out
 *.app
+*.exe
+bin/
+bin/*
 
 # Logs
 logs/
