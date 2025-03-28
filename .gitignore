@@ -27,6 +27,32 @@
 *.lib
 
 # Executables
-*.exe
 *.out
 *.app
+
+# Logs
+logs/
+*.log
+
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.DS_Store
+
+# IDE files
+*.sln
+.idea
+
+# Build Tools
+build/
+build/*
+
+# Text files
+doc/
+.doc/*
+*.txt
+
+# Tools files
+tools/
+.tools/

@@ -1,0 +1,24 @@
+{
+"args_count": 3,
+
+"paths": {
+    "include": [
+        "./include"
+
+    ],
+
+    "lib": [
+        "./lib"
+    ],
+    "source_code": [
+        "./src"
+    ]
+},
+"arguments": {
+    "output" : " -o ./CCG.exe",
+    "lib_suffix" : [
+        
+    ]
+}
+
+}
