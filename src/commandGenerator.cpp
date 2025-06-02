@@ -23,7 +23,7 @@ string GeneratedFullCommands(vector<fs::path> &cpp_files) {
     // GCC命令
     string prefix{"powershell -Command '"}, buffer{""}, command{""};
     string gcc_command[4] = {
-        "g++.exe -fexec-charset=utf-8 -g ",
+        JsonParser::s_argsPrefix,
         PathSpliSection(cpp_files),
         JsonParser::s_argsOutput,
         LinkingSpliSection()

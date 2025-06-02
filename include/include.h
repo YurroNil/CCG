@@ -23,12 +23,13 @@ public:
     static vector<string> s_PathsLib;
     static vector<string> s_PathsSourceCode;
     static vector<string> s_argsLibSuffix;
+    
+    static string s_argsPrefix;
     static string s_argsOutput;
     static int s_argsCount;
 
     static void LoadFromJson(const string& filePath);
 
-    
 private:
     static void Parsing(n_json& data);
 

@@ -9,6 +9,7 @@
     vector<string> JsonParser::s_PathsSourceCode = {};
     vector<string> JsonParser::s_argsLibSuffix = {};
 
+    string JsonParser::s_argsPrefix = "";
     string JsonParser::s_argsOutput = "";
     int JsonParser::s_argsCount = 3;
 
@@ -44,10 +45,15 @@ void ValidateJson(const n_json& j) {
     
     // 验证arguments结构
     const auto& arguments = j["arguments"];
+    // output
     if (!arguments.contains("output") || !arguments["output"].is_string()) {
         throw runtime_error("JSON无效：缺少output参数");
     }
-    
+    // 命令前缀参数
+    if (!arguments.contains("cmd_prefix") || !arguments["lib_suffix"].is_array()) {
+        throw runtime_error("JSON无效：缺少cmd_prefix参数");
+    }
+    // 命令后缀参数
     if (!arguments.contains("lib_suffix") || !arguments["lib_suffix"].is_array()) {
         throw runtime_error("JSON无效：缺少lib_suffix参数");
     }
@@ -65,9 +71,9 @@ void JsonParser::Parsing(n_json& data) {
 
     // arguments
     s_argsOutput = data["arguments"].value("output", " -o Program.exe");
+    s_argsPrefix = data["arguments"].value("cmd_prefix", "g++.exe -fexec-charset=utf-8 -g");
     const auto& arguments = data["arguments"];
     s_argsLibSuffix = arguments["lib_suffix"].get<vector<string>>();
-
     // args_count
     s_argsCount = data["args_count"].get<int>();
 }
